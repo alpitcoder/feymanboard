@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_040520) do
+ActiveRecord::Schema.define(version: 2021_03_01_112055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2021_03_01_040520) do
     t.index ["topic_id"], name: "index_blocks_on_topic_id"
   end
 
+  create_table "topic_knowledges", force: :cascade do |t|
+    t.bigint "topic_id"
+    t.bigint "user_id"
+    t.integer "percentage_of_understanging"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["topic_id"], name: "index_topic_knowledges_on_topic_id"
+    t.index ["user_id"], name: "index_topic_knowledges_on_user_id"
+  end
+
   create_table "topics", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id"
@@ -52,5 +62,7 @@ ActiveRecord::Schema.define(version: 2021_03_01_040520) do
   add_foreign_key "block_remarks", "blocks"
   add_foreign_key "block_remarks", "users"
   add_foreign_key "blocks", "topics"
+  add_foreign_key "topic_knowledges", "topics"
+  add_foreign_key "topic_knowledges", "users"
   add_foreign_key "topics", "users"
 end

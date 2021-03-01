@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :find_user, only: [:create,:show,:index]
 
   def index
-    @topics = Topic.all
+    @topics = Topic.includes(:topic_knowledges)
   end
 
   def new
@@ -11,7 +11,6 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.includes(blocks: :block_remarks).where(id: params[:topic_id]).take
-    # @block_remarks = @topic.blocks.block_remarks.where(user_id: @current_user.id)
   end
 
   def create

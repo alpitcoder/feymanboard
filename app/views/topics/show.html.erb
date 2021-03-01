@@ -1,4 +1,5 @@
 <select id='any_call_action'>
+  <option disabled selected value> -- select an option -- </option>
   <option value="what_rubbish" id="option-1">WHAT RUBBISH</option>
   <option value="not_clear">NOT CLEAR</option>
   <option value="somewhat_understood">SOMEWHAT UNDERSTOOD</option>
@@ -16,7 +17,7 @@
         <div>
           <% @topic.blocks.each do |block| %>
             <% if block.block_remarks.blank? %>
-              <span id = "select1" class = "black-color"><%= block.value %></span>
+              <span class = "black-color"><%= block.value %></span>
             <% end %>
           <% end %>
         </div>

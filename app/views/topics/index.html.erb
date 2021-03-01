@@ -10,6 +10,11 @@
           <a href="<%= show_topic_path(:topic_id => topic.id,:user_id => @current_user.id) %>" class="list-group-item list-group-item-action">
             <%= topic.title %>
           </a>
+          <% topic.topic_knowledges.each do |topic_knowledge|%>
+            <% if topic_knowledge.user_id == @current_user.id %>
+              <%= topic_knowledge.percentage_of_understanging %>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     </ul>

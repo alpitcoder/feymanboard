@@ -19,13 +19,13 @@ require("jquery")
 
 $("#any_call_action").change(function() {
   var id = $(this).children(":selected").attr("id");
-  $.ajax({
-    type: 'GET',
-    url: 'changeStatus.php',
-    data: {selectFieldValue: $('select.changeStatus').val()},
-    success: function(html){ Do something with the response },
-    dataType: 'html'
- });
+  // $.ajax({
+  //   type: 'GET',
+  //   url: 'changeStatus.php',
+  //   data: {selectFieldValue: $('select.changeStatus').val()},
+  //   success: function(html){ Do something with the response },
+  //   dataType: 'html'
+ // });
 });
 
 
