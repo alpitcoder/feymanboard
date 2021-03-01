@@ -1,0 +1,17 @@
+<div class="container py-5">
+  <h3>Topics</h3>
+  <%= link_to "+ Add a Topic", new_user_topic_path %><br>
+  <% if @topics.empty? %>
+  <p>No Topics Found</p>
+  <% else %>
+    <ul class="list-group my-5">
+      <% @topics.each do |topic| %>
+        <div>
+          <a href="<%= show_topic_path(:topic_id => topic.id,:user_id => @current_user.id) %>" class="list-group-item list-group-item-action">
+            <%= topic.title %>
+          </a>
+        </div>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

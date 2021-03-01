@@ -1,0 +1,24 @@
+<select id='any_call_action'>
+  <option value="what_rubbish" id="option-1">WHAT RUBBISH</option>
+  <option value="not_clear">NOT CLEAR</option>
+  <option value="somewhat_understood">SOMEWHAT UNDERSTOOD</option>
+  <option value="umderstood">UNDERSTOOD</option>
+</select>
+
+
+<div class="container py-5">
+    <ul class="list-group my-5">
+        <div>
+            <%= @topic.title %>
+        </div>
+        <br>
+        <br>
+        <div>
+          <% @topic.blocks.each do |block| %>
+            <% if block.block_remarks.blank? %>
+              <span id = "select1" class = "black-color"><%= block.value %></span>
+            <% end %>
+          <% end %>
+        </div>
+    </ul>
+</div>
